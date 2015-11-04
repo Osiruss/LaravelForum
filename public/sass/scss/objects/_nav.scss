@@ -36,18 +36,29 @@
 
 //Pagination
 .pagination {
-	overflow: hidden;
-
-	li {
+	float: left;
+	li, li:last-child {
 		float: left;
-		border-right: 1px solid $gray-light-2;
-
-		&:last-child {
-			border: 0;
+		a {
+			text-decoration: none;
+			padding: $space-half;
 		}
+		border:none;
+		padding: $space-half $space-half/2;
+		border: 1px solid black;
+		margin: 2px;
 	}
+	.active {
+	}
+	.disabled, .active {
+		color:#CBCBCB;
+	}
+}
 
+.breadcrumbs {
+	margin-bottom: $space-half;
 	a {
-		padding: $pad;
+		font-weight: bold;
+		text-decoration: underline;
 	}
 }

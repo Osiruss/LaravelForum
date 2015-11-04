@@ -134,6 +134,7 @@ body {
 		border-right:1px solid gray;
 	}
 }
+
 .recent-posts {
 	td {
 		padding: $space;
@@ -148,29 +149,15 @@ body {
 	
 	}
 }
-.pagination {
-	float: left;
-	li, li:last-child {
-		a {
-			text-decoration: none;
-		}
-		border:none;
-		padding: $space-half $space-half/2;
-		border: 1px solid black;
-		margin: 2px;
-	}
-	.disabled, .active {
-		color:gray;
+
+.userlist {
+	margin: $space 0;
+	td, th {
+		padding: $space;
 	}
 }
+
 .create {
 	float: right;
 	margin-bottom: 5px;
-}
-.breadcrumbs {
-	margin-bottom: $space-half;
-	a {
-		font-weight: bold;
-		text-decoration: underline;
-	}
 }
