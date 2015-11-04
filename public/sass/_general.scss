@@ -1,0 +1,176 @@
+body {
+	background: #ccc;
+}
+
+.site-main {
+	background: white;
+	min-height:500px;
+	padding-top: 10%;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	@include container(80%);
+	header {
+		overflow: hidden;
+		background: #E1E1E1;
+		border-top:1px solid gray;
+		border-bottom:1px solid gray;
+		nav {
+			@include span(12 of 12);
+			ul {
+				float: left;
+			}
+			li{
+				display: inline-block;
+				margin-right: -4px;
+				a {
+					text-decoration: none;
+					display: block;
+					font-size: 1.4em;
+					padding: $space-half/2 $space-half;
+				}
+			}
+		}
+		.welcome {
+			text-align: right;
+			font-size: 1.4em;
+			padding: $space-half/2 $space*2 $space-half/2;
+		}
+	}
+	.site-content {
+		padding: 5%;
+	}
+}
+.forum {
+	thead {
+		th {
+			padding: 2%;
+		}
+		.forum-stats {
+			text-align: right;
+		}
+	}
+
+	tbody {
+		th,td {
+			padding: 1% 2%;
+		}
+		th {
+
+		}
+		.forum-title {
+			width: 60%;
+			padding:0;
+	
+			a {
+				display: block;
+				padding: 2% 3%;
+				min-height:60px;
+				text-decoration: none;
+				strong {
+					font-size: 0.9em;
+				}
+				em {
+					font-size:0.8em;
+				}
+			}
+		}
+
+		.forum-stats {
+			width: 20%;
+			text-align: right;
+			font-size: 0.9em;
+		}
+
+		.forum-latest {
+			width: 20%;
+			font-size: 0.9em;
+		}
+	}
+}
+
+.thread {
+	tbody>tr>td {
+		padding: 5%;
+	}
+	.post-user {
+		width: 20%;
+		text-align: center;
+	}
+	.post-content {
+		table {
+			border:none;
+			td {
+				border:none;
+				padding: 0%;
+			}
+			.post-permalink {
+				font-style: italic;
+				font-size: 0.9em;
+				color:gray;
+				padding-bottom: $space-half;
+			}
+		}
+	}
+	.post-edit {
+		height: 49px;
+		text-align: right;
+		td {
+			padding: 0;
+		}
+	}
+}
+.user {
+	margin-bottom: $space;
+	td {
+		border:none;
+		padding: 5%;
+	}
+	.user-stats {
+		width: 30%;
+		text-align: center;
+	}
+	.user-bio {
+		width: 70%;
+		border-right:1px solid gray;
+	}
+}
+.recent-posts {
+	td {
+		padding: $space;
+		&.thread-title {
+			padding: 0;
+			a {
+				text-decoration: none;
+				display: block;
+				padding: $space;
+			}		
+		}
+	
+	}
+}
+.pagination {
+	float: left;
+	li, li:last-child {
+		a {
+			text-decoration: none;
+		}
+		border:none;
+		padding: $space-half $space-half/2;
+		border: 1px solid black;
+		margin: 2px;
+	}
+	.disabled, .active {
+		color:gray;
+	}
+}
+.create {
+	float: right;
+	margin-bottom: 5px;
+}
+.breadcrumbs {
+	margin-bottom: $space-half;
+	a {
+		font-weight: bold;
+		text-decoration: underline;
+	}
+}

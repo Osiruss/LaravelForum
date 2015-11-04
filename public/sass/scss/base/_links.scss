@@ -1,0 +1,9 @@
+/* Links */ 
+a {
+	color: $gray-dark;
+	outline: 0;
+	
+	&:hover, &:focus {
+		color: $gray;
+	}
+}
