@@ -20,12 +20,21 @@ class UserController extends BaseController
 	 */
 	public function index()
 	{
+
+		$arr = [
+			'id'=>'id',
+			'username'=>'username',
+			'joined'=>'created_at',
+			'post_count'=>'post_count'
+		];
+
 		//paginate
 		//tiny avatars?
-		$this->data['users'] = App\User::paginate(20);
-		foreach ($this->data['users'] as $user) {
-			$user->post_count = App\User::findOrFail($user->id)->posts->count();
-		}
+		$this->data['users'] = App\User::select('users.*',\DB::raw('COUNT(posts.id) as post_count'))
+							->join('posts','posts.user_id','=','users.id')
+							->groupBy('users.id')
+							->paginate(20);
+
 		$pagination = $this->data['users']->appends(array('order' => $by));
 		return view('forum.users.index',$this->data);
 	}

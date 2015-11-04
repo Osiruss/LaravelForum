@@ -6,16 +6,16 @@
 		<thead>
 			<tr>
 				<th>
-					<a href="{{ url('members',['hi'=>'no']) }}">ID</a>
+					<a href="{{ url('members?order=id') }}">ID</a>
 				</th>
 				<th>
-					<a href="{{ url('members',['hi'=>'no']) }}">Username</a>
+					<a href="{{ url('members?order=username') }}">Username</a>
 				</th>
 				<th>
-					<a href="{{ url('members',['hi'=>'no']) }}">Posts</a>
+					<a href="{{ url('members?order=post_count') }}">Posts</a>
 				</th>
 				<th>
-					<a href="{{ url('members',['hi'=>'no']) }}">Joined</a>
+					<a href="{{ url('members?order=joined') }}">Joined</a>
 				</th>
 
 			</tr>
