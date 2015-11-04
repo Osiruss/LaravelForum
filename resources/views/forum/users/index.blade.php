@@ -1,17 +1,21 @@
 @extends('layouts.master')
 @section('content')
-	<h1>Users</h1>
+	<h1>Members</h1>
+	{!! $users->render() !!}
 	<table class="userlist">
 		<thead>
 			<tr>
 				<th>
-					ID
+					<a href="{{ url('members',['hi'=>'no']) }}">ID</a>
 				</th>
 				<th>
-					Username
+					<a href="{{ url('members',['hi'=>'no']) }}">Username</a>
 				</th>
 				<th>
-					Joined
+					<a href="{{ url('members',['hi'=>'no']) }}">Posts</a>
+				</th>
+				<th>
+					<a href="{{ url('members',['hi'=>'no']) }}">Joined</a>
 				</th>
 
 			</tr>
@@ -20,13 +24,16 @@
 			@foreach($users as $user)
 				<tr>
 					<td>
-						
+						{{ $user->id }}
 					</td>
 					<td>
-						
+						{{ $user->username }}
 					</td>
 					<td>
-						
+						{{ $user->post_count }}
+					</td>
+					<td>
+						{{ $user->created_at->format('jS F Y') }}
 					</td>
 					<td>
 						<a href="{{ url('user/'.$user->id) }}">Profile</a>
@@ -35,4 +42,5 @@
 			@endforeach
 		</tbody>
 	</table>
+{!! $users->render() !!}
 @stop

@@ -20,10 +20,13 @@ class UserController extends BaseController
 	 */
 	public function index()
 	{
-		var_dump(\Input::all());
 		//paginate
 		//tiny avatars?
-		$this->data['users'] = App\User::all();
+		$this->data['users'] = App\User::paginate(20);
+		foreach ($this->data['users'] as $user) {
+			$user->post_count = App\User::findOrFail($user->id)->posts->count();
+		}
+		$pagination = $this->data['users']->appends(array('order' => $by));
 		return view('forum.users.index',$this->data);
 	}
 
@@ -64,7 +67,7 @@ class UserController extends BaseController
 		}
 
 		$this->data['profile'] = App\User::findOrFail($id)->profile;
-		$this->data['post_count'] = App\User::findOrFail($id)->posts()->count();
+		$this->data['post_count'] = App\User::findOrFail($id)->posts->count();
 		$this->data['posts'] = App\User::findOrFail($id)
 								->posts()
 								->select('posts.*','threads.title')
